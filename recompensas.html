@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Recompensas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="reneward.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>
+      <img src="./Logo2021.png" alt="Logo" width="40" height="40"> SA-EDU
+    </h2>
+    <ul>
+      <li><a href="#">Tablero <i class="fas fa-tachometer-alt"></i></a></li>
+      <li><a href="#">Cursos <i class="fas fa-tasks"></i></a></li>
+      <li><a href="#">Horario <i class="fas fa-clock"></i></a></li>
+      <li><a href="#">Recompensas <i class="fas fa-gift"></i></a></li>
+      <li><a href="#">Calificaciones <i class="fas fa-graduation-cap"></i></a></li>
+      <li><a href="#">Profesores <i class="fas fa-chalkboard-teacher"></i></a></li>
+      <li><a href="#">Bandeja de entrada <i class="fas fa-envelope"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Barra superior -->
+    <div class="top-bar">
+      <div class="icons">
+        <a href="#"><i class="fas fa-question-circle"></i></a>
+        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+
+    <!-- Navegación por Pestañas -->
+    <ul class="nav nav-tabs" id="rewardsTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="activities-tab" data-bs-toggle="tab" data-bs-target="#activities" type="button" role="tab" aria-controls="activities" aria-selected="true">Actividades</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="points-tab" data-bs-toggle="tab" data-bs-target="#points" type="button" role="tab" aria-controls="points" aria-selected="false">Puntos Acumulados</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="rewards-tab" data-bs-toggle="tab" data-bs-target="#rewards" type="button" role="tab" aria-controls="rewards" aria-selected="false">Recompensas Disponibles</button>
+      </li>
+    </ul>
+
+    <!-- Contenido de Pestañas -->
+    <div class="tab-content" id="rewardsTabContent">
+      <!-- Tab Actividades -->
+      <div class="tab-pane fade show active" id="activities" role="tabpanel" aria-labelledby="activities-tab">
+        <h1>Actividades que Otorgan Puntos</h1>
+        <ul class="activity-list">
+          <li>Participación en actividades extracurriculares <span>+10 puntos</span></li>
+          <li>Pago puntual de la matrícula <span>+15 puntos</span></li>
+          <li>Recomendación de la institución <span>+20 puntos</span></li>
+        </ul>
+      </div>
+
+      <!-- Tab Puntos Acumulados -->
+      <div class="tab-pane fade" id="points" role="tabpanel" aria-labelledby="points-tab">
+        <h2>Puntos Acumulados</h2>
+        <div class="points-box">
+          <p>Total: <span>45 puntos</span></p>
+        </div>
+        <button class="redeem-all-btn btn btn-primary mt-2" onclick="showRewardsTab()">Canjear mis puntos</button>
+      </div>
+
+      <!-- Tab Recompensas Disponibles -->
+      <div class="tab-pane fade" id="rewards" role="tabpanel" aria-labelledby="rewards-tab">
+        <h2>Recompensas Disponibles</h2>
+        <ul class="rewards-list">
+          <li>Descuento en libros <button class="redeem-btn btn btn-outline-primary">Canjear 20 puntos</button></li>
+          <li>Materiales educativos <button class="redeem-btn btn btn-outline-primary">Canjear 30 puntos</button></li>
+          <li>Descuento en inscripción <button class="redeem-btn btn btn-outline-primary">Canjear 50 puntos</button></li>
+        </ul>
+        <!-- Botón para abrir el modal del historial de recompensas -->
+        <button class="view-rewards-btn btn btn-secondary mt-3" data-bs-toggle="modal" data-bs-target="#historyModal">Ver Mis Recompensas</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para Historial de Recompensas -->
+  <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="historyModalLabel">Historial de Recompensas Canjeadas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="history-list">
+            <li>Descuento en libros - <span>20 puntos</span> - <em>Fecha: 10/10/2023</em></li>
+            <li>Materiales educativos - <span>30 puntos</span> - <em>Fecha: 15/10/2023</em></li>
+            <li>Descuento en inscripción - <span>50 puntos</span> - <em>Fecha: 20/10/2023</em></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript para redirigir a la pestaña de recompensas -->
+  <script>
+    function showRewardsTab() {
+      document.getElementById('rewards-tab').click();
+    }
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
